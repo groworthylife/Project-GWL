@@ -27,7 +27,10 @@
 	<div class="menu menu--main">
 		<h1>MAD BLOCK</h1>
 		<button type="button" class="play-normal-btn">PLAY GAME</button>
-		<button type="button" class="play-casual-btn">PRACTICE</button>
+		<!-- <button type="button" class="play-casual-btn">PRACTICE</button> -->
+		<a href="">
+			<button type="button" class="play-normal-btn">Quit</button>
+		</a>
 		<div class="credits">A game by <a href="{% url 'home' %}">groWorthylife</a></div>
 	</div>
 	<div class="menu menu--pause">
@@ -52,7 +55,7 @@ body {
 	height: 100vh;
 	overflow: hidden;
 
-	font-family: monospace;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-weight: bold;
 	letter-spacing: 0.06em;
 	color: rgba(255, 255, 255, 0.75);
@@ -259,7 +262,7 @@ button {
 	border: none;
 	outline: none;
 	user-select: none;
-	font-family: monospace;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-weight: bold;
 	font-size: 1.4rem;
 	color: #fff;

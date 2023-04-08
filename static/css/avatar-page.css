@@ -13,29 +13,42 @@
     padding: 0 8%;
     position: relative;
 }
-nav{
+.navbar{
+    width: 85%;
+    margin:auto;
+    padding: 35px 0;
     display: flex;
-    width: 100%;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 5px 0;
-  
+    justify-content: space-between;
 }
 .logo{
-    width: 120px;
+    width: 240px;
     cursor: pointer;
-}
-
-nav ul{
-    flex: 1;
-    text-align: center ;
-    padding-right: 10px;
 
 }
-nav ul {
-    display:inline-block;
+.navbar ul li{
     list-style: none;
-    margin: 10px 30px;
+    display:inline-block;
+    margin: 0 20px;
+    position:relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%
 }
 .content{
     position: absolute;
@@ -51,7 +64,7 @@ button{
     text-align: center;
     margin: 20px 10px;
     border-radius: 50px;
-    font-weight: 100px;
+    font-weight: 300px;
     border: 2px solid #fff;
     background: transparent;
     color: #fff;
@@ -63,13 +76,13 @@ button{
     bottom: 8%;
 }
 .text-box p{
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 400;
 
 }
 .text-box h1{
-    font-size: 70px;
-    line-height: 70px;
+    font-size: 50px;
+    line-height: 30px;
     margin-left: -10px;
     color: #fff;
 }
@@ -79,7 +92,7 @@ button{
     }
 }
 .text-box h3{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
 
 

@@ -12,6 +12,23 @@ Academics Classes | GroWorthylife
 {% block content %}
 <form method="POST">
     {% csrf_token %}
+    <div class="navbar">
+        <img src="{% static 'image/logomain.png' %}" class="logo">
+        <ul>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'avatar' %}">AVATAR</a></li>
+            <li><a href="{% url 'quiz' %}">Quiz</a></li>
+            <li><a href="{% url 'help' %}">Help & Support</a></li>
+            <li><a href="{% url 'help' %}">Log Out</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>WELCOME TO GROWORTHYLIFE</h1>
+        <p>Be productive & build yourself</p>
+        <br>
+        <p>In groWorthylife the users can optimise their level of learning with concentration <br> and the gaming
+            ecosystem will create an enthralling atmosphere.</p>
+        <div>
     <div class="menu-bar">
         <ul>
             <select name="std">
