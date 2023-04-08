@@ -1,15 +1,17 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.http import HttpResponseRedirect
+from .validators import *
 from .threads import *
 from .models import *
 import uuid
 
 context = {}
 
-@login_required(login_url='login')
+
+@login_required(login_url='../login/')
 def logoutView(request):
     logout(request)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -19,11 +21,28 @@ def SignUp(request):
     try:
         if request.method == 'POST':
             name = request.POST.get('name')
-            age = request.POST.get('age')
+            age = int(request.POST.get('age'))
             phone = request.POST.get('phone')
             std = request.POST.get('std')
             email = request.POST.get('email')
             password = request.POST.get('password')
+            # validate credentials
+            if not validate_email(email):
+                messages.info(request, 'Invalid Email')
+                return redirect('register')
+            elif not validate_name(name):
+                messages.info(request, 'Invalid Name')
+                return redirect('register')
+            elif not validate_phone_no(phone):
+                messages.info(request, 'Invalid Phone Number')
+                return redirect('register')
+            elif not validate_age(age):
+                messages.info(request, 'Invalid Age')
+                return redirect('register')
+            elif not validate_standerd(std):
+                messages.info(request, 'Select Standerd')
+                return redirect('register')
+
             if CustomerModel.objects.filter(email=email).first():
                 messages.info(request, 'This account already exist. Try logging in.')
                 return redirect('login')
