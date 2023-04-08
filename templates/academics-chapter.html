@@ -17,12 +17,16 @@ Academics Chapters | GroWorthylife
             <select name="chapter">
                 <option value="chapter" selected>Chapter</option>
                 {% for i in chapters %}
-                <option value="{{ i.id }}">{{ i.chapter_name | safe }}</option>
+                <option value="{{ i.chapter_name }}">{{ i.chapter_name | safe }}</option>
                 {% endfor %}
             </select>
             <button type="submit">Next</button>
+            {% if available %}
+        
+                <button> <a target="_blank" href="{{download}}">Download Notes</a></button>
+            {% endif %}
+        </ul>
 </form>
-</ul>
-<h1>Download your notes from given link address {{ download }}</h1>
+
 </div>
 {% endblock content %}

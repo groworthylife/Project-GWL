@@ -3,7 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from .threads import *
 from .models import *
+import uuid
 
 context = {}
 
@@ -67,3 +69,46 @@ def LogIn(request):
 
 def accountsPage(request):
     return render(request, "accounts.html", context)
+
+
+
+def Forget(request):
+    try:
+        if request.method == 'POST':
+            email = request.POST.get('email')
+            user = CustomerModel.objects.get(email=email)
+            if not user:
+                messages.info(request, 'This user does not exist. Please Signup.')
+                return redirect('/signup')
+            token = str(uuid.uuid4())
+            user.token = token
+            thread_obj = send_forgot_link(email, token)
+            thread_obj.start()
+            user.save()
+            messages.info(request, 'We have sent you a link to reset password via mail')
+    except Exception as e:
+        print(e)
+        messages.error(request, str(e))
+    return render(request, "accounts/forgot.html", context)
+
+
+def Reset(request, token):
+    try:
+        customer_obj = CustomerModel.objects.get(token=token)
+        if not customer_obj:
+            messages.info(request, 'This user does not exist. Please Signup.')
+            return redirect('/signup')
+        if request.method == 'POST':
+            npw = request.POST.get('npw')
+            cpw = request.POST.get('cpw')
+            if npw == cpw:
+                customer_obj.set_password(cpw)
+                customer_obj.save()
+                messages.info(request, 'Password Changed successfully.')
+                return redirect('/login')
+            messages.error(request, 'New Password and Confirm Password dont match.')
+            return redirect('/login')
+    except Exception as e :
+        print(e)
+        messages.error(request, str(e))
+    return render(request, "accounts/reset.html", context)

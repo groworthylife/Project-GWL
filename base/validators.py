@@ -1,7 +1,16 @@
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+import re
 
 SpecialSym =['$', '@', '#', '%', '!', '&', '^', '-', '_', '=', '+' ]
+
+
+def validate_email(s):
+    pat = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+    if re.match(pat,s):
+        return s
+    else:
+        raise ValidationError(_("Invalid Email ID"), code=404)
 
 
 def validate_pw(pw):
@@ -25,6 +34,7 @@ def validate_pw(pw):
     if res:
         return res
 
+
 def validate_name(pw):
     res = True
     if any(char.isdigit() for char in pw):
@@ -36,8 +46,11 @@ def validate_name(pw):
     if res:
         return res
 
-def validate_phone_no(value):
-    try:
-        pass
-    except Exception as e:
-        print(e)
+
+def validate_phone_no(s):
+    Pattern = re.compile("(0|91)?[6-9][0-9]{9}")
+    if Pattern.match(s) == None:
+        raise ValidationError("Invalid Phone Number", code=404)
+    else:
+        return s
+

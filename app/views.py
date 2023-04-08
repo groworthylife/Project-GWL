@@ -1,25 +1,31 @@
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from authentication.models import CustomerModel
+from django.shortcuts import render, redirect
 from .models import *
 
 context = {}
+
 
 def welcomePage(request):
     return render(request, "welcome.html", context)
 
 
+@login_required(login_url='login/')
 def homePage(request):
     return render(request, "home.html", context)
 
 
+@login_required(login_url='login/')
 def gamePage(request):
     return render(request, "game.html", context)
 
 
+@login_required(login_url='login/')
 def madBlockPage(request):
     return render(request, "Madblock.html", context)
 
 
+@login_required(login_url='login/')
 def academicsPage(request):
     try:
         context["classes"] = ClassModel.objects.all().order_by("std")
@@ -31,6 +37,7 @@ def academicsPage(request):
     return render(request, "Academics-class.html", context)
 
 
+@login_required(login_url='login/')
 def subjectPage(request, class_id):
     try:
         context["subjects"] = SubjectsModel.objects.filter(std=ClassModel.objects.get(std=class_id))
@@ -42,18 +49,21 @@ def subjectPage(request, class_id):
     return render(request, "academics-subject.html", context)
 
 
+@login_required(login_url='login/')
 def chapterPage(request, subject_id):
     try:
         context["chapters"] = ChapterModel.objects.filter(subject=SubjectsModel.objects.get(subject_name=subject_id))
+        context["available"] = False
         if request.method == 'POST':
-            chapter = ChapterModel.objects.get(id=request.POST.get('chapter'))
+            chapter = ChapterModel.objects.get(chapter_name=request.POST.get('chapter'))
             context["download"] = chapter.link
-        pass
+            context["available"] = True
     except Exception as e:
         print(e)
     return render(request, "academics-chapter.html", context)
 
 
+@login_required(login_url='login/')
 def avatarPage(request):
     try:
         user = CustomerModel.objects.get(email=request.user.email)
@@ -63,10 +73,10 @@ def avatarPage(request):
     return render(request, "avatar-page.html", context)
 
 
-def helpPage(request):
-    return render(request, "Help-support.html", context)
-
-
+@login_required(login_url='login/')
 def quizPage(request):
     return render(request, "Quiz.html", context)
 
+
+def helpPage(request):
+    return render(request, "Help-support.html", context)
