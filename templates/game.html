@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Game | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/game.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<div class="banner">
+    <div class="navbar">
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="/static/video/video.mp4" type="video/mp4">
+        </video>
+        <img src="{% static 'image/logomain.png' %}" class="logo">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'avatar' %}">Avatar</a></li>
+            <li><a href="{% url 'quiz' %}">Quiz</a></li>
+            <li><a href="{% url 'help' %}">Help & Support</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>GAME-O-WORTHY</h1>
+        <p>Playing Games foster the mindset that allows creativity to grow. ~ NOLAN BUSHNELL</p>
+        <div>
+            <a href="{% url 'mad-block' %}">
+                <button type="button"><span></span>MAD BLOCK</button>
+            </a>
+            <button type="button"><span></span>GAME 2</button>
+        </div>
+    </div>
+</div>
+{% endblock content %}

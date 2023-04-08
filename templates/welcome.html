@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Welcome to GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<div class="navbar">
+    <img src="{% static 'image/logomain.png' %}" class="logo">
+</div>
+<div class="content">
+    <small>Welcome to</small>
+    <h1>Groworthylife</h1>
+    <h3>Be productive & build yourself</h3>
+    <br>
+    <a href="{% url 'accounts' %}">
+        <button type="button"> Let's Explore</button>
+    </a>
+</div>
+</div>
+<div class="monsters">
+    <img src="{% static 'image/monster.png' %}">
+    <img src="{% static 'image/monster.png' %}">
+    <img src="{% static 'image/monster.png' %}">
+    <img src="{% static 'image/monster.png' %}">
+    <img src="{% static 'image/monster.png' %}">
+    <img src="{% static 'image/monster.png' %}">
+</div>
+{% endblock content %}

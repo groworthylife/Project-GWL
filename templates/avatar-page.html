@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Avatar | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/avatar-page.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<div class="container">
+    <div class="content">
+        <img src="{% static 'image/avatar.png' %}" class="logo">
+        <br>
+        <a href="{% url 'home' %}">
+            <button type="button">Hey {{name}} ! I am your Avatar <br>Click to Launch</button>
+        </a>
+    </div>
+    <div class="hero">
+        <div class="text-box">
+            <p>HESITATION IS DEFEAT</p>
+            <br>
+            <h1>GroWorthylife</h1>
+            <br>
+            <h3>A PLATFORM TO BE PRODUCTIVE & BUILD YOURSELF</h3>
+        </div>
+    </div>
+    {% endblock content %}

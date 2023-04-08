@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Academics Chapters | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/academics-subject.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="menu-bar">
+        <ul>
+            <select name="chapter">
+                <option value="chapter" selected>Chapter</option>
+                {% for i in chapters %}
+                <option value="{{ i.id }}">{{ i.chapter_name | safe }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Next</button>
+</form>
+</ul>
+<h1>Download your notes from given link address {{ download }}</h1>
+</div>
+{% endblock content %}

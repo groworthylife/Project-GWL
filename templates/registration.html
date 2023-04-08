@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Register | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/Registration.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<div class="main-block">
+  <div class="left-part">
+    <i class="fas fa-graduation-cap"></i>
+    <h1>Register to GroWorthylife</h1>
+    <div class="btn-group">
+      <a class="btn-item" href="{% url 'welcome' %}">Welcome Page</a>
+      <a class="btn-item" href="{% url 'login' %}">Login</a>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="title">
+      <i class="fas fa-pencil-alt"></i>
+      <h2>Register here</h2>
+    </div>
+    <div class="info">
+      <input class="fname" type="text" name="name" placeholder="Full name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="phone" placeholder="Phone number" required>
+      <input type="number" name="age" placeholder="Age" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <select name="std">
+        <option value="course-type" selected>Standard</option>
+        <option value="8th">8th standard</option>
+        <option value="9th">9th standard </option>
+        <option value="10th">10th standard</option>
+        <option value="11th">11th standard</option>
+        <option value="12th">12th standard</option>
+      </select>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" name="checkbox"><span>I agree to the <a href="">Privacy Policy for
+          GroWorthylife</a></span>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock content %}

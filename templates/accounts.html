@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Accounts | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/Login.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<div class="container">
+    <div class="content">
+        <img src="{% static 'image/icon.png' %}" class="logo">
+        <br>
+        <a href="{% url 'login' %}">
+            <button type="button">Login</button>
+        </a>
+        <a href="{% url 'register' %}">
+            <button type="button">Register</button>
+        </a>
+    </div>
+    <div class="hero">
+        <div class="text-box">
+            <p>Our platform</p>
+            <br>
+            <h1>GroWorthylife</h1>
+            <br>
+            <h3>helps students focus better for prolonged hours</h3>
+        </div>
+    </div>
+    <div class="monsters">
+        <img src="{% static 'image/monster.png' %}">
+        <img src="{% static 'image/monster.png' %}">
+        <img src="{% static 'image/monster.png' %}">
+        <img src="{% static 'image/monster.png' %}">
+        <img src="{% static 'image/monster.png' %}">
+        <img src="{% static 'image/monster.png' %}">
+    </div>
+    {% endblock content %}

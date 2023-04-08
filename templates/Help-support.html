@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Help and Support | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/Help-support.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<div class="banner">
+    <div class="navbar">
+        <img src="{% static 'image/logomain.png' %}" class="logo">
+        <ul>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'avatar' %}">AVATAR</a></li>
+            <li><a href="{% url 'quiz' %}">Quiz</a></li>
+            <li><a href="{% url 'help' %}">Help & Support</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>HELP & SUPPORT</h1>
+        <p>A platform that keeps you productive</p>
+        <br>
+        <p>Email us your problems/Queries on groworthylife@gmail.com <br> Follow us on Instagram for updates</p>
+        <div>
+            <a href="https://www.instagram.com/groworthylife/" target="_blank">
+                <button type="button"><span></span>INSTAGRAM</button>
+            </a>
+            <a href="https://mail.google.com/" target="_blank">
+                <button type="button"><span></span>Email</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

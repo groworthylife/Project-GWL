@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Academics Classes | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/Academics-class.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="menu-bar">
+        <ul>
+            <select name="std">
+                <option value="class" selected>Class</option>
+                {% for i in classes %}
+                <option value="{{ i.std | safe }}">{{ i.std | safe }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Next</button>
+</form>
+</ul>
+</div>
+{% endblock content %}

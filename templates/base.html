@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <!-- responsive tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title tag -->
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <!-- favicon/logo -->
+    <link rel="icon" href="{% static 'image/favicon.jpeg' %}" sizes="32x32" type="image/png">
+    <!-- SEO tags -->
+    <meta name="description" content="Groworthylife">
+    <meta name="author" content="Atharva Parkhe">
+    <meta name="keywords" content="Groworthylife, Grow, Worthy, Life">
+    <meta property="og:title" content="Groworthylife" />
+    <meta property="og:type" content="Game" />
+    <meta property="og:url" content="https://blueskript.com" />
+    <meta property="og:image" content="{% static 'image/logomain.png' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/Login.css' %}"> -->
+        <!-- Link Stylesheet -->
+    {% block stylesheet_linking %}
+    {% endblock stylesheet_linking %}
+</head>
+<body>
+        <!-- Message -->
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="message" >{{msg}}</div>
+        {% endfor %}
+    {% endif %}
+        <!-- Content -->
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/home-page.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<div class="banner">
+    <div class="navbar">
+        <img src="{% static 'image/logomain.png' %}" class="logo">
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'avatar' %}">Avatar</a></li>
+            <li><a href="{% url 'quiz' %}">Quiz</a></li>
+            <li><a href="{% url 'help' %}">Help & Support</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>WELCOME TO GROWORTHYLIFE</h1>
+        <p>Be productive & build yourself</p>
+        <br>
+        <p>In groWorthylife the users can optimise their level of learning with concentration <br> and the gaming
+            ecosystem will create an enthralling atmosphere.</p>
+        <div>
+            <a href="{% url 'game' %}">
+                <button type="button"><span></span>GAME</button>
+            </a>
+            <a href="{% url 'academics' %}">
+                <button type="button"><span></span>ACADEMICS</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

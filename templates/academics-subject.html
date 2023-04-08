@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Academics Subjects | GroWorthylife
+{% endblock title %}
+
+{% block stylesheet_linking %}
+<link rel="stylesheet" href="{% static 'css/academics-subject.css' %}">
+{% endblock stylesheet_linking %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="menu-bar">
+        <ul>
+            <select name="subject">
+                <option value="subject" selected>Subjects</option>
+                {% for i in subjects %}
+                <option value="{{ i.subject_name | safe }}">{{ i.subject_name | safe }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Next</button>
+</form>
+</ul>
+</div>
+{% endblock content %}
