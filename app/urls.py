@@ -7,6 +7,7 @@ urlpatterns = [
 	path('', views.welcomePage, name="welcome"),
 	path('home/', views.homePage, name="home"),
 	path('help/', views.helpPage, name="help"),
+	path('privacy-policy/', views.privacyPage, name="privacy-policy"),
 	
 	# Game
 	path('game/', views.gamePage, name="game"),

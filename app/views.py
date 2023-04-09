@@ -80,3 +80,8 @@ def quizPage(request):
 
 def helpPage(request):
     return render(request, "Help-support.html", context)
+
+
+def privacyPage(request):
+    return render(request, "privacy-policy.html", context)
+

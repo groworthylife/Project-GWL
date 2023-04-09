@@ -1,8 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from .validators import *
 from .threads import *
 from .models import *
@@ -108,7 +108,7 @@ def Forget(request):
     except Exception as e:
         print(e)
         messages.error(request, str(e))
-    return render(request, "accounts/forgot.html", context)
+    return render(request, "forgot-password.html", context)
 
 
 def Reset(request, token):
@@ -119,15 +119,11 @@ def Reset(request, token):
             return redirect('/signup')
         if request.method == 'POST':
             npw = request.POST.get('npw')
-            cpw = request.POST.get('cpw')
-            if npw == cpw:
-                customer_obj.set_password(cpw)
-                customer_obj.save()
-                messages.info(request, 'Password Changed successfully.')
-                return redirect('/login')
-            messages.error(request, 'New Password and Confirm Password dont match.')
+            customer_obj.set_password(npw)
+            customer_obj.save()
+            messages.info(request, 'Password Changed successfully.')
             return redirect('/login')
     except Exception as e :
         print(e)
         messages.error(request, str(e))
-    return render(request, "accounts/reset.html", context)
+    return render(request, "reset-password.html", context)
