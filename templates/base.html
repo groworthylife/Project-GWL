@@ -21,20 +21,33 @@
     <meta property="og:type" content="Game" />
     <meta property="og:url" content="https://blueskript.com" />
     <meta property="og:image" content="{% static 'image/logomain.png' %}" />
-    <!-- <link rel="stylesheet" href="{% static 'css/Login.css' %}"> -->
-        <!-- Link Stylesheet -->
+    <!-- Link Stylesheet -->
     {% block stylesheet_linking %}
     {% endblock stylesheet_linking %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
         <!-- Message -->
     {% if messages %}
         {% for msg in messages %}
-            <div class="message" >{{msg}}</div>
+            <div class="modalView" id="modalView">
+                <div id="modalView__closeBtn"></div>
+                <div class="modalView__content centered">
+                  <h3>{{msg}}</h3>
+                </div>
+              </div>
         {% endfor %}
     {% endif %}
         <!-- Content -->
     {% block content %}
     {% endblock content %}
+    <script>
+        const modalView = document.getElementById("modalView");
+        const closeBtn = document.getElementById("modalView__closeBtn");
+
+        closeBtn.addEventListener("click", () => {
+            modalView.style.display = "none";
+        });
+    </script>
 </body>
 </html>

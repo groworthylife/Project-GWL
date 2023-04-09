@@ -49,17 +49,30 @@ body{
 .navbar ul li:hover::after{
     width: 100%
 }
-content h1{
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    text-align: center;
     color:#fff;
+}
+.content h1{
     font-size: 50px;
-    margin-top: 70px;
+    margin-top: 450px;
+}
+.content h2{
+    font-size: 20px;
+    /* margin-top: 450px; */
 }
 content p{
-    margin: 10px auto;
+    margin: -30px auto;
     font-weight: 100;
     line-height: 25px;
 }
+
 .menu-bar{
+    margin-top: -270px;
     background:transparent;
     text-align: center;
 }
