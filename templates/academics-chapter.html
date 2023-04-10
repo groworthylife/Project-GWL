@@ -12,6 +12,22 @@ Academics Chapters | GroWorthylife
 {% block content %}
 <form method="POST">
     {% csrf_token %}
+    <div class="navbar">
+        <img src="{% static 'image/logomain.png' %}" class="logo">
+        <ul>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'avatar' %}">AVATAR</a></li>
+            <li><a href="{% url 'quiz' %}">Quiz</a></li>
+            <li><a href="{% url 'help' %}">Help & Support</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>NOTE-O-WORTHY</h1>
+        <p>Lets Boost some productivity and make your studies a bit easier <br>We bring your some excellent notes by professionals</p>
+        <br>
+        <h2>SELECT YOUR CLASS</h2>
+        <div>
     <div class="menu-bar">
         <ul>
             <select name="chapter">

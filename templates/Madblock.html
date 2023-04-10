@@ -29,7 +29,7 @@
 		<button type="button" class="play-normal-btn">PLAY GAME</button>
 		<!-- <button type="button" class="play-casual-btn">PRACTICE</button> -->
 		<a href="{% url 'game' %}">
-			<button type="button" class="play-normal-btn">Quit</button>
+			<button type="button" class="play-casual-btn">QUIT</button>
 		</a>
 		<div class="credits">A game by <a href="{% url 'home' %}">groWorthylife</a></div>
 	</div>
@@ -44,22 +44,18 @@
 		<div class="final-score-lbl"></div>
 		<div class="high-score-lbl"></div>
 		<button type="button" class="play-again-btn">PLAY AGAIN</button>
-		<button type="button" class="menu-btn--score">
-			<a href="{% url 'home' %}">
-				MAIN MENU
-			</a>
-			</button>
+		<button type="button" class="menu-btn--score">MAIN MENU</button>
 	</div>
 </div>
 <style>
 body {
 	margin: 0;
 	background-color: #000;
-	background-image:url("/static/image/background.jpg");
+	background-image:url(/static/image/background.jpg);
 	height: 100vh;
 	overflow: hidden;
 
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: monospace;
 	font-weight: bold;
 	letter-spacing: 0.06em;
 	color: rgba(255, 255, 255, 0.75);
@@ -266,7 +262,7 @@ button {
 	border: none;
 	outline: none;
 	user-select: none;
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: monospace;
 	font-weight: bold;
 	font-size: 1.4rem;
 	color: #fff;
@@ -2497,7 +2493,14 @@ if ('PointerEvent' in window) {
 	}, { passive: false });
 }
 
+
+
+
+
+// index.js
+// ============================================================================
+// ============================================================================
+
 setupCanvases();
 </script>
-
 {% endblock content %}
