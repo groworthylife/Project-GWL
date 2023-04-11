@@ -12,7 +12,7 @@ urlpatterns = [
 	# Game
 	path('game/', views.gamePage, name="game"),
 	path('avatar/', views.avatarPage, name="avatar"),
-	path('mad-block/', views.madBlockPage, name="mad-block"),
+	path('mad-block/<num>/', views.madBlockPage, name="mad-block"),
 	
 	# Quiz
 	path('quiz/', views.quizPage, name="quiz"),

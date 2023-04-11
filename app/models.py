@@ -8,6 +8,8 @@ class ContactUsModel(BaseModel):
     msg = models.TextField()
     def __str__(self):
         return self.name
+    class Meta:
+        db_table = 'contact'
 
 
 class ClassModel(BaseModel):
