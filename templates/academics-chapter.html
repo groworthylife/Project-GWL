@@ -12,22 +12,24 @@ Academics Chapters | GroWorthylife
 {% block content %}
 <form method="POST">
     {% csrf_token %}
-    <div class="navbar">
-        <img src="{% static 'image/logomain.png' %}" class="logo">
-        <ul>
-            <li><a href="{% url 'home' %}">HOME</a></li>
-            <li><a href="{% url 'avatar' %}">AVATAR</a></li>
-            <li><a href="{% url 'quiz' %}">Quiz</a></li>
-            <li><a href="{% url 'help' %}">Help & Support</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-        </ul>
-    </div>
     <div class="content">
-        <h1>NOTE-O-WORTHY</h1>
-        <p>Lets Boost some productivity and make your studies a bit easier <br>We bring your some excellent notes by professionals</p>
-        <br>
-        <h2>SELECT YOUR CLASS</h2>
-        <div>
+        <div class="banner">
+            <div class="navbar">
+                <img src="{% static 'image/logomain.png' %}" class="logo">
+                <ul>
+                    <li><a href="{% url 'home' %}">HOME</a></li>
+                    <!-- <li><a href="{% url 'avatar' %}">AVATAR</a></li> -->
+                    <!-- <li><b><a href="{% url 'quiz' %}" style="color:#f1e35f;">Quiz</a></b></li> -->
+                    <li><a href="{% url 'help' %}">Help & Support</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>ACADEMY-O-WORTHY</h1>
+                <!-- <p>Lets get you some Notes by Professionals</p> -->
+                <p style="color:#fff;"><b>Select your chapter & Enjoy your notes, hence answer the QUIZ to improve your productivity </b></p>
+                <br>
+                <p><b>SELECT YOUR CHAPTER</b></p>
     <div class="menu-bar">
         <ul>
             <select name="chapter">
@@ -37,10 +39,13 @@ Academics Chapters | GroWorthylife
                 {% endfor %}
             </select>
             <button type="submit">Next</button>
+            
             {% if available %}
-        
-                <button> <a target="_blank" href="{{download}}">Download Notes</a></button>
+            
+                <button> <a target="_blank" href="{{download}}" style="color:#fff;">Download Notes</a></button>
+                <button> <a target="_blank" href="{% url 'quiz' %}" style="color:#f1e35f;">QUIZ</a></button>
             {% endif %}
+            
         </ul>
 </form>
 

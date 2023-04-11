@@ -75,6 +75,14 @@ def avatarPage(request):
 
 @login_required(login_url='../')
 def quizPage(request):
+    try:
+        if request.method == 'POST':
+            score = request.POST.get('score')
+            print("@@@@@@@@@@@@@@@@")
+            print(score)
+            print("@@@@@@@@@@@@@@@@")
+    except Exception as e:
+        print(e)
     return render(request, "Quiz.html", context)
 
 

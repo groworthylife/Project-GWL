@@ -47,7 +47,7 @@ def validate_name(pw):
 
 
 def validate_phone_no(s):
-    Pattern = re.compile("(0|91)?[6-9][0-9]{9}")
+    Pattern = re.compile(r"^\d{10}$")
     if Pattern.match(s) == None:
         return False
     return True
