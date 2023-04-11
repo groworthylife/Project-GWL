@@ -105,13 +105,27 @@ MEDIA_ROOT = os.path.join("data")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'us2.smtp.mailhostbox.com'
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = False
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'us2.smtp.mailhostbox.com'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = False
-EMAIL_PORT = 25
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 BASE_URL = "http://127.0.0.1:8000/"
+
+# EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+# EMAIL_PORT = 587
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
