@@ -44,10 +44,12 @@ Quiz | GroWorthylife
     <div id="user-score">Demo Score</div>
     <form method="post">
         {% csrf_token %}
-        <input type="number" name="score" value="$scoreCount">
+        <input type="number" name="score" id="score">
         <button id="restart" type="submit">Restart</button>
     </form>
 </div>
+<!-- var test = "Hello";
+document.getElementById("score").value = test; -->
 <script>
     //References
     let timeLeft = document.querySelector(".time-left");
@@ -104,6 +106,7 @@ Quiz | GroWorthylife
 
     //Restart Quiz
     restart.addEventListener("click", () => {
+        document.getElementById("score").value = scoreCount;
         initial();
         displayContainer.classList.remove("hide");
         scoreContainer.classList.add("hide");
@@ -241,5 +244,8 @@ Quiz | GroWorthylife
         startScreen.classList.remove("hide");
         displayContainer.classList.add("hide");
     };
+
+    
+
 </script>
 {% endblock content %}
